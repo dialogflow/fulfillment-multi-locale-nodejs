@@ -20,7 +20,7 @@
   },
   "defaultTimezone": "America/Los_Angeles",
   "webhook": {
-    "url": "https://us-central1-libsample-advanced.cloudfunctions.net/dialogflowFirebaseFulfillment",
+    "url": "",
     "headers": {
       "": ""
     },
