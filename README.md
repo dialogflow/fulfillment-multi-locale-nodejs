@@ -1,39 +1,51 @@
 # Multi-language and Locale Sample
 
 ## Setup
-Choose one of the three options listed below for setup.  You only need to complete one of the three options below to setup this sample.
+Select **only one** of the options below.
 
-### Option 1: Add to Dialogflow (recommended)
-Click on the **Add to Dialogflow** button below and follow the prompts to create a new agent:
+### Option 1: Add to Dialogflow (Recommended)
+To create this agent from our template:
 
-[![Multi-locale](https://storage.googleapis.com/dialogflow-oneclick/deploy.svg "Multi-locale")](https://console.dialogflow.com/api-client/oneclick?templateUrl=https%3A%2F%2Fstorage.googleapis.com%2Fdialogflow-oneclick%2Fmultilocale-agent.zip&agentName=MultilocaleSample)
+<a href="https://console.dialogflow.com/api-client/oneclick?templateUrl=https://oneclickgithub.appspot.com/dialogflow/fulfillment-multi-locale-nodejs&agentName=MultiLangSample" target="blank">
+  <img src="https://dialogflow.com/images/deploy.png">
+</a>
 
-### Option 2: Dialogflow Inline Editor
-1. [Sign up for or sign into Dialogflow](https://console.dialogflow.com/api-client/#/login) and [create a agent](https://dialogflow.com/docs/agents#create_an_agent)
-1. Go to your agent's settings and [Restore from zip](https://dialogflow.com/docs/agents#export_and_import) using the `dialogflow-agent.zip` in this directory (Note: this will overwrite your existing agent)
-1. [Enable the Cloud Function for Firebase inline editor](https://dialogflow.com/docs/fulfillment#cloud_functions_for_firebase)
-1. Change the name of the function in `functions/index.js` from `dialogflowFulfillmentMultiLocale` to `dialogflowFirebaseFulfillment`
-1. Copy this code in `functions/index.js` the `index.js` file in the Dialogflow Cloud Function for Firebase inline editor.
-1. Add `"dialogflow-fulfillment": "^0.4.0"` to the `package.json` file's `dependencies` object in the Dialogflow Cloud Function for Firebase inline editor.
-1. Click `Deploy`
+### Option 2: Firebase CLI
+1. Create a [Dialogflow Agent](https://console.dialogflow.com/).
+2. `git clone https://github.com/dialogflow/fulfillment-multi-locale-nodejs.git`
+3. Go to **Settings** ⚙ > **Export and Import** > **Restore from zip** using the `dialogflow-agent.zip` in this directory.
+4. `cd` to the `functions` directory
+5. Run `npm install`.
+6. Install the Firebase CLI by running `npm install -g firebase-tools`
+7. Login with your Google account, `firebase login`
+8.  Add your project to the sample with `firebase use <project ID>`
+      + In Dialogflow console under **Settings** ⚙ > **General** tab > copy **Project ID**.
+9. Run `firebase deploy --only functions:dialogflowFulfillment`
+10. Back in Dialogflow Console > **Fulfullment** > **Enable** Webhook.
+      + Paste the URL from the Firebase Console’s Trigger column under the **Functions > Dashboard** tab into the **URL** field > **Save**.
 
-### Option 3: Firebase CLI
-1. [Sign up for or sign into Dialogflow](https://console.dialogflow.com/api-client/#/login) and [create a agent](https://dialogflow.com/docs/agents#create_an_agent)
-1. Go to your agent's settings and [Restore from zip](https://dialogflow.com/docs/agents#export_and_import) using the `dialogflow-agent.zip` in this directory (Note: this will overwrite your existing agent)
-1. `cd` to the `functions` directory
-1. Run `npm install`
-1. Install the Firebase CLI by running `npm install -g firebase-tools`
-1. Login to your Google account with `firebase login`
-1. Add your project to the sample with `firebase use [project ID]` [find your project ID here](https://dialogflow.com/docs/agents#settings)
-1. Run `firebase deploy --only functions:dialogflowFulfillmentMultiLocale`
-1. Paste the URL into your Dialogflow agent's fulfillment
+## Related Samples
+| Name       | Language           |
+| ------------- |:-------------:|
+| [Fulfillment & Regex Validation](https://github.com/dialogflow/fulfillment-regex-nodejs)      | Node.js |
+| [Weather: Fulfillment & WWO API](https://github.com/dialogflow/fulfillment-weather-nodejs)     | Node.js      |  
+| [Bike Shop: Fulfillment & Google Calendar API](https://github.com/dialogflow/fulfillment-bike-shop-nodejs)| Node.js |
+| [Temperature Trivia: Fulfillment & Actions on Google](https://github.com/dialogflow/fulfillment-temperature-converter-nodejs) | Node.js |
+| [Fulfillment & Actions on Google](https://github.com/dialogflow/fulfillment-actions-library-nodejs) | Node.js |
+| [Fulfillment & Firestore Database](https://github.com/dialogflow/fulfillment-firestore-nodejs) | Node.js |
+| [Basic Slot Filling](https://github.com/dialogflow/fulfillment-slot-filling-nodejs) | Node.js |
+| [Alexa Importer](https://github.com/dialogflow/fulfillment-importer-nodejs) | Node.js |
 
-## References and How to report bugs
-* Dialogflow documentation: [https://docs.dialogflow.com](https://docs.dialogflow.com).
-* If you find any issues, please open a bug on [GitHub](https://github.com/dialogflow/dialogflow-fulfillment-nodejs/issues).
-* Questions are answered on [StackOverflow](https://stackoverflow.com/questions/tagged/dialogflow).
+For Fulfillment Webhook [JSON Requests & Responses](https://github.com/dialogflow/fulfillment-webhook-json).
 
-## How to make contributions?
+## References & Issues
++ Questions? Try [StackOverflow](https://stackoverflow.com/questions/tagged/dialogflow) or [Dialogflow Developer Community](https://plus.google.com/communities/103318168784860581977).
++ Find a bug? Report it on [GitHub](https://github.com/dialogflow/fulfillment-webhook-json/issues).
++ Dialogflow [Documentation](https://dialogflow.com/docs/getting-started/basics).
++ For more information on [Initializing Firebase SDK for Cloud Functions](https://firebase.google.com/docs/functions/get-started#set_up_and_initialize_functions_sdk).
++ For more information on [Restore from Zip](https://dialogflow.com/docs/agents#export_and_import).
+
+## Make Contributions
 Please read and follow the steps in the CONTRIBUTING.md.
 
 ## License
